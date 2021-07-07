@@ -1,0 +1,248 @@
+header {
+    box-shadow: 0px 0px;
+}
+
+/* Barra de navegación */
+
+
+.main-navbar{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    text-decoration: none;
+    text-align: center;
+    justify-content: space-between;
+    margin : 10px 30px;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+
+.dropbtn .main-navbar {
+   
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+
+    display:none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2000;
+    top: 140px;
+  }
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropbtn {
+    background-color:white;
+    margin: 15px;
+   color: black;
+}
+
+/* Show the dropdown menu on hover  */
+
+.dropbtn:hover {
+    background-color: grey;
+}
+
+.main-navbar:hover .dropdown-content {
+
+    display: block;
+   
+}
+
+/*   IMAGEN */
+
+.volandoalto {
+   width: 100%;
+}
+
+main {
+    max-width: 90%;
+    margin: auto;
+}
+
+.titulocart {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+.sub-titulos-container{
+   width: 98%;
+   
+    
+}
+.sub-titulos-carrito{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-tit-eliminar{
+    margin-left:0px;
+}
+
+.producto{
+    width: 100%;
+    border-top: black;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-width: 1px;
+}
+
+.detalle-productos{
+
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    text-decoration: none;
+    justify-content:space-between;
+    border-bottom: solid black;
+    border-width: 1px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.contenido-producto {
+    width: 150px;
+    
+    
+}
+.foto-producto{
+    width: 50px;
+    margin-right: 0px;
+    align-items: center;
+    
+   
+}
+
+.cantidad{
+    width: 40px;
+}
+
+
+.container-botones {
+    display: flex;
+    justify-content:space-evenly;
+    height: 30px;
+    margin-right: 30%;
+}
+
+.container-botones button, .container-seguircomprando button {
+    max-width: 200px;
+}
+
+.container-botones button {
+    margin: 10px;
+}
+
+/*display: flex;
+        flex-direction: column;*/
+
+.botones-de-accion, .botones-de-accion2 {
+
+        
+        color: #FFFFFF;
+        background-color: #3e5480;
+        border: 1mm solid #232f47;
+        border-radius: 20px;
+        padding: 7px;
+        transition: all 0.5s;
+    }
+
+.container-seguircomprando {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.total-compra{
+    margin-left: 70%;
+}
+
+/*-----HOVER-----*/
+
+.botones-de-accion:hover, .botones-de-accion2:hover {
+    background-color: #395ca4;
+    border: 1mm solid #395ca4;
+}
+
+/*-----MEDIA QUERIES-----*/
+
+@media screen and (max-width: 600px){
+     .avatar, .main-navbar, .precio {
+        display:none;
+    }
+    .total-compra {
+        margin-left: 10px;
+        margin-top: 50px;
+        font-weight: bold;
+    }
+
+    .container-botones {
+        margin-right: 0%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .header-left {
+        display:none;
+    }
+    .container-seguircomprando button {
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 601px){
+    .fa-bars {
+        display: none;
+    }
+}
+
+/* footer */
+
+footer {
+    background-color: var(--footer-gray);
+    padding: 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-left ul {
+    list-style-type:none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer-right a {
+    margin-left: 10px;
+}

@@ -1,0 +1,64 @@
+body {
+    background-color: #FAFAFA;
+}
+
+main{
+    padding-top: 40px;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+
+main section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+article {
+    width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    box-shadow: 0px 4px 16px -1px rgba(201, 201, 201, 0.25);
+}
+
+.product-img {
+    height: 200px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+
+article h4 {
+    color: #395ca4;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.precios * {
+    margin: 0px;
+    font-size: 18px;
+}
+
+.precios {
+    display: flex;
+}
+
+.precio {
+    color: #395ca4;
+    text-decoration: line-through;
+}
+
+.precio-descontado {
+    margin-left: 10px;
+    color: #07793B;
+}

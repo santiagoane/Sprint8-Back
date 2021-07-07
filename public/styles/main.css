@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
+
+:root {
+    --footer-gray: #DFE6ED;
+    --primary-blue: #007BFF;
+    --danger-red: #DC3545;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+/* Estilos del header */
+
+header {
+    color: #395ca4;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    -webkit-box-shadow: -5px 7px 29px -8px rgba(189, 189, 189, 1);
+    -moz-box-shadow: -5px 7px 29px -8px rgba(189, 189, 189, 1);
+    box-shadow: -5px 7px 29px -8px rgba(189, 189, 189, 1);
+}
+
+.header-left {
+    display: flex;
+}
+
+.fa-shopping-cart {
+    line-height: 45px;
+    margin-right: 10px;
+}
+
+.header-right {
+    display: flex;
+}
+
+.header-right ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    line-height: 45px;
+    padding-left: 0;
+}
+
+.logo {
+    background-image: url('/images/logos/placeholder.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
+}
+
+.avatar {
+    background-image: url('/images/home/avatar.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 45px;
+}
+
+.header-right li {
+    margin-right: 20px;
+}
+
+#search {
+    height: 45px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    flex: 2 1 auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    max-width: 450px;
+}
+
+header h3 {
+    line-height: 45px;
+    margin: 0 0 0 10px;
+}
+
+.fa-bars {
+    line-height: 45px;
+}
+
+button {
+    border-radius: 5px;
+    -webkit-font-smoothing: antialiased;
+    background-color: #3483fa;
+    border-collapse: collapse;
+    border-color: transparent;
+    border-radius: 6px;
+    box-shadow: #fff 0 0 0 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Proxima Nova", -apple-system, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 48px;
+    line-height: 48px;
+    margin-top: 8px;
+    padding: 0 24px;
+    text-align: center;
+    transition: box-shadow 0.25s ease-out, background-color 0.2s ease-out;
+    width: 100%;
+}
+
+button:hover {
+    background-color: royalblue;
+}
+
+@media screen and (max-width: 600px) {
+    .header-right ul,
+    .avatar {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .header-left {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .fa-bars {
+        display: none;
+    }
+}

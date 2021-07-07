@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+        <title>Wave Runners</title>
+        <link rel="stylesheet" href="styles/register.css">
+</head>
+
+<body>
+    <header>
+        <a href="/">
+            <div class="headerflex">
+                <img class="logotipo" src="/images/logos/circulo.jpg" alt="Logo de WaveRunners">
+    
+            </div>
+        </a>
+    </header>
+
+    <main class="mainbody">
+        <section class="sectionbody">
+            <h3 class="crearcuenta">Iniciar Sesión</h3>
+
+            <form action="" method="POST">
+                <div class="divflex">
+
+                    <div class="mail">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" name="email" required>
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div class="contraseña">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" required>
+                    </div>
+
+                    <div class="divcheckbox">
+
+                        <input type="checkbox" name="remember_user"> <label class="labellogin" for="recordar">Recordarme
+                        </label>
+
+                    </div>
+
+                    <div class="divboton">
+                        <button class="boton" type="submit">Iniciar sesión</button>
+                    </div>
+
+                </div>
+            </form>
+            <div class="parrafo">
+                <p>Al continuar, aceptas las <a class="hipervinculo" href="#">Condiciones de Uso</a> y el <a
+                        class="hipervinculo" href="#">Aviso de Privacidad</a> de Wave Runners</p>
+            </div>
+
+            <div class="listafondo">
+                <ul>
+                    <li><a href="">¿Olvidaste tu contraseña</a></li>
+                    <li><a href="">Otros problemas con el inicio de sesión</a></li>
+
+                </ul>
+            </div>
+
+        </section>
+        <section class="minisection">
+            <div class="divminisection">
+                <div class="ultimoparrafo">
+                    <p>¿Eres nuevo/a en Wave Runners?</p>
+                </div>
+                <div class="ultimoform">
+                    <form action="/views/register.html" method="POST">
+
+                        <button class="boton2" type="submit">Crea tu cuenta</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

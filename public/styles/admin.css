@@ -1,0 +1,145 @@
+body {
+    background-color: #F1F3F6;
+    margin: 0px;
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* Panel izquierdo de navegacion */
+
+nav {
+    background-color: white;
+    width: 20%;
+    min-height: 100vh;
+    padding-left: 30px;
+    box-sizing: border-box;
+    padding-top: 50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+nav h3 {
+    margin: 0px;
+    font-size: 26px;
+    color: #3A3B3F;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+    color: #3A3B3F;
+}
+
+nav ul .fas {
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+/* Main */
+
+main {
+    width: 80%;
+}
+
+/* Indicadotes de colores */
+
+.indicators {
+    display: flex;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.indicator {
+    border-radius: 10px;
+    padding: 20px;
+    width: 25%;
+    box-sizing: border-box;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.indicator p {
+    margin: 0px;
+}
+
+.indicators .indicator:nth-child(1) {
+    background: #CA79F017;
+    color: #AC28EA
+  }
+
+  .indicators .indicator:nth-child(2) {
+    background: #28DEEA17;
+    color: #19C0CB
+  }
+
+  .indicators .indicator:nth-child(3) {
+    background: #20B22F17;
+    color: #20B22F
+  }
+
+.indicator .kpi {
+    font-size: 37px;
+    font-weight: 800;
+    margin-top: 10px;
+}
+
+/* Filters */
+
+div.filters {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+div.filters button {
+    width: 300px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+div.filters button i {
+    margin-right: 20px;
+}
+
+/* Tabla */
+
+table {
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+th {
+    padding-bottom: 15px;
+}
+
+td {
+    gap: 10px;
+    padding: 15px 0px;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.td-flex-container {
+    display: flex;
+    gap: 15px;
+}
+
+td .product-img {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+}

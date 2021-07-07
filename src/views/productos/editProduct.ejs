@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<%- include('../partials/head') %>
+    <title>Wave Runners</title>
+    <link rel="stylesheet" href="../../styles/home.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/register.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main class="mainbody">
+            <section class="sectionbody">
+                <h3 class="tituloEdit">Edicion del producto</h3>
+
+                <form action="/products/<%=  product.id %>?_method=PUT" method="POST">
+                    <div class="divflex">
+                        <div class="nameProduct">
+                            <label for="nombre_producto">Nombre</label>
+                            <input id="nombre_producto" type="text" name="nombre_producto" value="<%= product.nombre_producto %>" required>
+                        </div>
+
+                        <div>
+                            <label for="descripcion">Descripcion</label>
+                            <input id="descripcion" type="text" name="descripcion" value="<%= product.descripcion %>" required>
+                        </div>
+
+                        <div>
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria" required>
+                                <option value="<%= product.categoria %>"><%= product.categoria %></option>
+                                <option value="Surf">Surf</option>
+                                <option value="Kitesurf">Kitesurf</option>
+                                <option value="Paddlesurf">Paddlesurf</option>
+                                <option value="Wakeboard">Wakeboard</option>
+                                <option value="Snorkel">Snorkel</option>
+                                <option value="Windsurf">Windsurf</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="subcategoria">Sub categoria</label>
+                            <select name="subcategoria" id="subcategoria" required>
+                                <option value="<%= product.subcategoria %>"><%= product.subcategoria %></option>
+                                <option value="Trajes">Trajes</option>
+                                <option value="Tablas">Tablas</option>
+                                <option value="Cera">Cera</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="imagen">Imagen</label>
+                            <div class="control">
+                             
+                                <input type="file" name="imagen" id="imagen">
+                                <input type="hidden" name="oldImagen" value="<%= product.imagen %>">
+                           
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="precio">Precio</label>
+                            <input type="text" name="precio" value="<%= product.precio %>" required>
+                        </div>
+
+                        <div>
+                            <label for="descuento">descuento</label>
+                            <input type="text" name="descuento" value="<%= product.descuento %>" required>
+                        </div>
+
+                        <div class="divboton">
+                            <button type="submit">Editar producto</button>
+                        </div>
+                    </div>
+                </form>
+                <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                    <div class="divflex">
+                        <div>
+                            <button type="submit">Eliminar Producto</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
+
+</html>

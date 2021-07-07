@@ -1,0 +1,133 @@
+/* Grilla de categorias */
+
+main {
+    max-width: 720px;
+    padding: 50px 5vw 0 5vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.category {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    height: 300px;
+    width: 200px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: -5px 7px 29px -8px rgba(189,189,189,1);
+}
+
+.overlay {
+    background-color: rgba(95, 95, 95, 0.5);
+    width: 100%;
+    height: 100%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.category-title {
+    margin: 0px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.surf {
+    background-image: url('/images/home/surf.jpg');
+}
+
+.kitesurf {
+    background-image: url('/images/home/kitesurf.jpg');
+}
+
+.paddlesurf {
+    background-image: url('/images/home/paddlesurf.jpg');
+}
+
+.wakeboard {
+    background-image: url('/images/home/wakeboard.jpg');
+}
+
+.snorkel {
+    background-image: url('/images/home/snorkel.jpg');
+}
+
+.windsurf {
+    background-image: url('/images/home/windsurf.jpg');
+}
+
+
+/* Indice de Categproas */
+
+.index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.category-index {
+    width: 200px;
+    margin: 10px;
+}
+
+
+.category-index ul {
+    list-style-type:none;
+    padding-left: 0px;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--footer-gray);
+    padding: 30px;
+    margin-top: 50px;
+    margin-top: 50px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-left ul {
+    list-style-type:none;
+    padding-left: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer-right a {
+    margin-left: 10px;
+}

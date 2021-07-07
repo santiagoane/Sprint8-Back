@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+        <link rel="stylesheet" href="../../styles/admin.css">
+        <link rel="stylesheet" href="../../styles/main.css">
+        <title>Backoffice | Users</title>
+</head>
+
+<body>
+    <nav>
+        <h3>Waverunners</h3>
+        <ul>
+            <li style="opacity: 50%"><a href="/admin"><i class="fas fa-archive"></i>Productos</a></li>
+            <li><a href="/admin/users"><i class="fas fa-user"></i>Usuarios</a></li>
+            <li style="opacity: 50%"><i class="fas fa-shopping-bag"></i>Ventas</li>
+        </ul>
+    </nav>
+    <main>
+        <%- include('../partials/indicators') %>
+        <div class="filters">
+            <a href="/register">
+            <button><i class="fas fa-plus-circle"></i>Crear Nuevo Usuario</button>
+        </a>
+        </div>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th></th>
+            </tr>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td>
+                        <a href="/" class="td-flex-container">
+                            <div class="product-img"
+                                style="background-image: url('/images/usuarios/<%= user.profile_img %>');"></div>
+                            <%= user.nombre %>
+                        </a>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.role %>
+                    </td>
+                    <td>
+                        <a href="/"><i class="fas fa-edit"></i></a>
+                    </td>
+                </tr>
+                <% })%>
+        </table>
+    </main>
+</body>
+
+</html>

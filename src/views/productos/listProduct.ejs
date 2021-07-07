@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <%- include('../partials/head') %>
+    <title>Wave Runners</title>
+        <link rel="stylesheet" href="../../styles/products.css">
+        <link rel="stylesheet" href="../../styles/main.css">
+        <link rel="stylesheet" href="../../styles/main.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+            <%if (typeof query !== 'undefined') { %>
+                <p>Estos son los resultados de tu busqueda: "<%= query %>"</p>
+            <% } %>
+        <section>
+            <form action="/products/create" method="GET">
+                <button type="submit">CREAR PRODUCTO</button>
+            </form>
+        </section>
+        <section>
+            <% products.forEach(product => { %>
+                <%- include('../partials/product', { product }) %>
+            <% })%>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

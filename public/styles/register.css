@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+body header {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    border: 0;
+    box-shadow: 0 0;
+}
+
+.headerflex {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-top: 6%;
+    margin-bottom: 5%;
+    box-sizing: border-box;
+}
+.logotipo {
+    width: 20%;
+    justify-self: center;
+}
+body main section {
+    width: 70%;
+    border: 1px solid #ddd;
+    margin: 15px auto 50px;
+    padding-top: 30px;
+    max-width: 450px;
+    border-radius: 5px;
+}
+.tituloEdit,
+.crearcuenta {
+    text-align: center;
+    font-size: 19px;
+}
+.divflex {
+    display: flex;
+    flex-flow: column;
+}
+.divflex div {
+    display: flex;
+    flex-flow: column;
+    margin: 3% 3% 3% 3%;
+}
+
+.feedback {
+    font-size: 11px;
+}
+.contraseña2 {
+    display: flex;
+    flex-flow: column;
+    margin: 3% 2% 2% 5%;
+}
+
+.divboton {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+
+.parrafo {
+    margin: 3% 2%;
+}
+.fondo {
+    margin: 5% 2%;
+    border-top: 2px solid #ebebeb;
+    padding-top: 10px;
+}
+p {
+    font-size: 13px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+.hipervinculo {
+    font-weight: bold;
+}
+input[type=text], input[type=email], input[type=password] {
+    width: 90%;
+    background-color: #fff;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    border-top: 1px solid #949494;
+    box-shadow: rgba(255, 255, 255, .5) 0 1px 0, rgba(0, 0, 0, .07) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #111;
+    cursor: text;
+    font-size: 100%;
+    height: 31px;
+    line-height: normal;
+    margin: 0;
+    outline: 0;
+    padding: 3px 7px;
+    transition: all 0.1s linear;
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--footer-gray);
+    padding: 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-left ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-right a {
+    margin-left: 10px;
+}
+
+
+/* Estilos Login */
+.divcheckbox {
+    display: flex;
+    flex-flow: row!important;
+    width: 50%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 15%;
+
+}
+.labellogin {
+    margin-left: 10px;
+}
+.listafondo {
+    display: flex;
+    flex-flow: column;
+    margin-left: 10%;
+    margin-bottom: 20px;
+}
+
+ul li a {
+    font-weight: bold;
+    font-size: 13px;
+
+}
+ul li {
+    margin-top: 2%;
+}
+.minisection {
+    border: 0;
+    background-color: white;
+    width: 70%;
+}
+.divminisection {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.ultimoparrafo {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-bottom: 3%;
+    border-bottom: 2px solid lightgrey;
+    width: 100%;
+}
+.ultimoform {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+
+/* Media queries */
+
+@media(min-width: 600px) {
+    .boton {
+        width: 100%;
+    }
+
+
+}

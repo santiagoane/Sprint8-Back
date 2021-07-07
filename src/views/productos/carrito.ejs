@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+            <title>Wave Runners</title>
+            <link rel="stylesheet" href="../../styles/carrito.css">
+            <link rel="stylesheet" href="../../styles/main.css">
+    </head>
+
+    <header>
+        <div class="header-left">
+            <div class="logo"></div>
+            <h3>WaveRunners</h3>
+        </div>
+        <input type="text" name="search" id="search" placeholder="Busca productos">
+        <div class="header-right">
+            <i href='#' class="fas fa-shopping-cart"></i>
+            <div class="avatar"></div>
+        </div>
+    </header>
+
+    <body>
+        <section class="barra de navegacion">
+            <ul class="main-navbar">
+                <li><a a href="#">Surf</a></li>
+                <li><a a href="#">Kite</a></li>
+                <li><a a href="#">PaddleSurf</a></li>
+                <li><a a href="#">Wakeboard</a></li>
+                <li><a a href="#">Snorkel</a></li>
+                <li><a a href="#">Windsurf</a></li>
+
+
+            </ul>
+        </section>
+
+        <section class="portada">
+            <img class="volandoalto" src='/images/carrito/volandoalto.png'>
+        </section>
+
+        <main>
+            <table style="width:100%">
+                <h3 class="titulocart"> Productos del carrito</h3>
+
+                <div class="sub-titulos-container">
+
+                    <tr class="sub-titulos-carrito">
+                        <th class="sub-tit-eliminar">Eliminar</th>
+                        <th>Productos</th>
+                        <th class='precio'>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Sub Total</th>
+
+                    </tr>
+                </div>
+                <section class="producto1">
+                    <tr class="detalle-productos">
+                        <td><a a href="#"><i class="far fa-times-circle"></i></a></td>
+                        <td class="contenido-producto"><img class="foto-producto"
+                                src="/images/carrito/KiteDuotone.jpeg">Dice 9M
+                        </td>
+                        <td class= "precio">$172.470</td>
+                        <td><input class="cantidad" type="number" name="qprod" id="qprod" placeholder="Cant."></td>
+                        <td>$172.470</td>
+                    </tr>
+                </section>
+                <section class="producto2">
+                    <tr class="detalle-productos">
+                        <td><a a href="#"><i class="far fa-times-circle"></i></a></td>
+                        <td class="contenido-producto"><img class="foto-producto"
+                                src="/images/carrito/barrakite.jpeg">Barra
+                            44cm</td>
+                        <td class= "precio" >$43.200</td>
+                        <td><input class="cantidad" type="number" name="qprod" id="qprod" placeholder="Cant."></td>
+                        <td>$43.200</td>
+                    </tr>
+                </section>
+                <section class="producto3">
+                    <tr class="detalle-productos">
+                        <td><a a href="#"><i class="far fa-times-circle"></i></a></td>
+                        <td class="contenido-producto"><img class="foto-producto"
+                                src="/images/carrito/inflador.jpeg">Inflador</td>
+                        <td class= "precio" >$5.400</td>
+                        <td><input class="cantidad" type="number" name="qprod" id="qprod" placeholder="Cant."></td>
+                        <td>$5.400</td>
+
+                    </tr>
+            </table>
+
+            </section>
+            <br>
+            
+            <br>
+            <br>
+            <section class="container-botones">
+
+                <input class="botones-de-accion" type="submit" value="Seguir Comprando">
+
+                <input class="botones-de-accion" type="submit" value="Guardar Carrito">
+
+
+
+            </section>
+
+            <p class="total-compra">Total $221.070 </p>
+
+            <section class="container-seguircomprando">
+                <input class="botones-de-accion2" type="submit" value="Continuar Compra">
+            </section>
+
+        </main>
+
+
+        <%- include('../partials/footer') %>
+
+    </body>
+
+</html>

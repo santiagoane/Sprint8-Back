@@ -1,0 +1,18 @@
+<a href="/products/<%= product.id %>">
+<article>
+        <div class="product-img" style="background-image: url('../images/producto/<%= product.imagen %>')"></div>
+     
+        <div>
+            <h4 class="descripcion">
+                <%= product.nombre_producto %>
+            </h4>
+            <div class="precios">
+                <p class="precio">$ <%= product.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
+                </p>
+                <p class="precio-descontado">$ <%= Math.round(product.precio - product.descuento).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
+                </p>
+            </div>
+ 
+        </div>
+</article>
+</a>

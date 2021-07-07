@@ -1,0 +1,262 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*-----MAIN-----*/
+
+main{
+    padding-top: 40px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.images-second{
+    display: none;
+}
+
+.images-first{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+}
+
+.images-first img{
+    width: 100%;
+    max-width: 400px;
+}
+
+.product-name{
+    font-size: 2em;
+    color: #395ca4;
+}
+
+.product-price{
+    font-size: 1.5em;
+    color: #395ca4;
+}
+
+/*-----FORMULARIO-----*/
+
+.product-form-title{
+    border-top: 1mm solid #d8d8d8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #395ca4;
+}
+
+.product-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+main section article form select{
+    border: 1px #d8d8d8 solid;
+    padding: 5px;
+    margin: 10px 0px 10px 0px;
+    border-radius: 3px;
+}
+
+.product-buttons{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product-buttons button{
+    color: #FFFFFF;
+    background-color: #232f47;
+    border: 1mm solid #232f47;
+    border-radius: 20px;
+    padding: 7px;
+    margin: 10px;
+    transition: all 0.5s;
+}
+
+/*-----DESCRIPCION-----*/
+
+.product-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+section article div i{
+    color: #1DA1F2;
+    font-size: 40px;
+}
+
+.fa-facebook-f, main .fa-twitter{
+    color: #4267B2;
+    font-size: 40px;
+}
+
+.fa-whatsapp{
+    color: #25D366;
+    font-size: 40px;
+}
+
+.product-info-title{
+    padding: 10px 10px 0px 10px;
+    color: #395ca4;
+}
+
+.product-info{
+    padding: 10px;
+}
+
+
+
+/*-----EDITAR-PRODUCTO-----*/
+
+.edit-bottom{
+    margin: 40px auto;
+    max-width: 30%;
+
+
+}
+
+/*-----PRODUCTOS-RELACIONADOS-----*/
+
+.product-related-title, .product-info-title {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: #395ca4
+}
+
+.related-products article {
+    width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    box-shadow: 0px 4px 16px -1px rgba(201, 201, 201, 0.25);
+}
+
+.related-products .product-img {
+    height: 200px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+
+.related-products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+article h4 {
+    color: #395ca4;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.precios * {
+    margin: 0px;
+    font-size: 18px;
+}
+
+.precios {
+    display: flex;
+}
+
+.precio {
+    color: #395ca4;
+    text-decoration: line-through;
+}
+
+.precio-descontado {
+    margin-left: 10px;
+    color: #07793B;
+}
+
+
+/*-----FOOTER-----*/
+
+footer {
+    background-color: var(--footer-gray);
+    padding: 30px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-left ul {
+    list-style-type:none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer-right a {
+    margin-left: 10px;
+}
+
+/*-----HOVER-----*/
+
+.product-buttons button:hover{
+    background-color: #395ca4;
+    border: 1mm solid #395ca4;
+}
+
+/*-----MEDIA-QUERRY-----*/
+
+
+
+@media (min-width: 769px){
+    *{
+        font-size: 1em;
+    }
+
+    main{
+        max-width: 1200px;
+        padding: 50px 5vw 0 5vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .product-images{
+        display: flex;
+        flex-direction: row;
+        justify-content: stretch;
+    }
+
+    
+    .images-second{
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .images-second img{
+        padding: auto;
+        width: 100%;
+        max-width: 132px;
+    }
+}
+
