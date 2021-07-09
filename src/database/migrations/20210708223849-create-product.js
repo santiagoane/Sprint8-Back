@@ -33,35 +33,35 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      categoryId: {
+      categories_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'category',
           key: 'id'}
       },
-      brandId: {
+      brands_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'brand',
           key: 'id'}
       },
-      colorId: {
+      colors_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'color',
           key: 'id'}
       },
-      genderId: {
+      genders_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'gender',
           key: 'id'}
       },
-      sizeId: {
+      sizes_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {

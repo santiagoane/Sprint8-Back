@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
-      User.belongsTo(models.Category, {
-        foreignKey: 'roleId',
+      User.belongsTo(models.Role, {
+        foreignKey: 'roles_id',
         as: "role"
       });
     }
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     avatar: DataTypes.STRING,
     keywords: DataTypes.TEXT,
-    roleId: DataTypes.INTEGER
+    roles_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'User',

@@ -32,7 +32,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      roleId: {
+      roles_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
