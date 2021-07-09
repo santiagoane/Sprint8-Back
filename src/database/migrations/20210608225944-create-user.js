@@ -28,15 +28,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
-      keywords: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
+      
       roles_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'role',
+          model: 'roles',
           key: 'id'}
       },
       createdAt: {

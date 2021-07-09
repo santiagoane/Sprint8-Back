@@ -29,43 +29,40 @@ module.exports = {
       //   type: Sequelize.STRING
       // },
       
-      keywords: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
+      
       categories_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'category',
+          model: 'categories',
           key: 'id'}
       },
       brands_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'brand',
+          model: 'brands',
           key: 'id'}
       },
       colors_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'color',
+          model: 'colors',
           key: 'id'}
       },
       genders_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'gender',
+          model: 'genders',
           key: 'id'}
       },
       sizes_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'size',
+          model: 'sizes',
           key: 'id'}
       },
       createdAt: {
