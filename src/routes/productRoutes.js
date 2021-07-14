@@ -11,17 +11,17 @@ const upload = require(path.resolve(__dirname,'../middlewares/multerProductsMidd
 
 
 
-router.get('/', productController.show1);
-router.get('/create', productController.create);
-router.get('/cart', productController.cart);
-router.get('/search', productController.search);
+// router.get('/', productController.show1);
+// router.get('/create', productController.create);
+// router.get('/cart', productController.cart);
+// router.get('/search', productController.search);
 router.get('/:id', productController.show);
-router.get('/:id/edit', productController.edit);
+// router.get('/:id/edit', productController.edit);
 
-router.post('/create', upload.single('imagen'), productController.store);
-router.put('/:id', upload.single('imagen'), productController.update);
+// router.post('/create', upload.single('imagen'), productController.store);
+// router.put('/:id', upload.single('imagen'), productController.update);
 
-router.delete('/:id', productController.destroy);
+// router.delete('/:id', productController.destroy);
 
 module.exports = router;
 

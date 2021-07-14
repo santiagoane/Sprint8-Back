@@ -1,8 +1,13 @@
 // ESTO SERIA EL GESTOR DEL MODELO
-const jsonDB = require('../model/jsonDatabase');
+//const jsonDB = require('../model/jsonDatabase');
 
 // Maneja todos los métodos para PRODUCTO, que lo pasa como parámetro
-const productModel = jsonDB('../data/products01');
+//const productModel = jsonDB('../data/products01');
+
+const path = require('path');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
 let productController = {
 
@@ -14,17 +19,29 @@ let productController = {
     },
 
     // Función que muestra el detalle del producto, cuando hacemos click en la foto
-    show: (req, res) => {
+    show: async (req, res) => {
 
         // Le delego al modelo la responsabilidad
         // que la busque por ID del registro seleccionado
         // es por ello que atrapo em parámetro id
-        const product = productModel.find(req.params.id);
-        console.log(product)
-        if (product) {
-            res.render('productos/detailProduct', {product});
-        } else {
-            res.render('not-found');
+
+        try {
+            const product = await db.Product.findByPk(req.params.id,
+                {
+                    include: [
+                        "brand", "category", "Images", "size", "color", "gender"
+                    ]
+                }
+
+            );
+            console.log(product.toJSON())
+            console.log(product)
+            return res.render('productos/detailProduct', { product });
+
+        }
+        catch (error) {
+            console.log(error);
+
         }
     },
 
@@ -45,15 +62,15 @@ let productController = {
         console.log(product);
         // Cuidado sólo mando el cuerpo del FORM, el Id me lo asigna el Modelo  
         productModel.create(product);
-            res.redirect('/');
+        res.redirect('/');
     },
-    
+
     edit: (req, res) => { // Delego al modelo que busque el producto
         let product = productModel.find(req.params.id);
 
-        console.log("Abri la pagina de edicion de "+product.id+" "+product.nombre_producto)
+        console.log("Abri la pagina de edicion de " + product.id + " " + product.nombre_producto)
         if (product) {
-            res.render('productos/editProduct', {product});
+            res.render('productos/editProduct', { product });
         } else {
             res.render('error404');
         }
@@ -65,27 +82,27 @@ let productController = {
         console.log('product');
         product.id = req.params.id;
 
-         product.imagen = req.file ? req.file.filename : req.body.oldImagen;
-        
-          if (req.body.imagen===undefined) {
+        product.imagen = req.file ? req.file.filename : req.body.oldImagen;
+
+        if (req.body.imagen === undefined) {
             product.imagen = product.oldImagen
         }
-        
-          console.log('.......MOSTRA LA IMAGEN.......')
+
+        console.log('.......MOSTRA LA IMAGEN.......')
         console.log(product.imagen)
         console.log(product)
-      
 
-      // Elimino de la estructura auxiliar, porque no existe en Json 
+
+        // Elimino de la estructura auxiliar, porque no existe en Json 
         delete product.oldImagen;
 
 
         // Delego la responsabilidad al modelo que actualice
         productModel.update(product);
-          
 
 
-        res.redirect('/products/'+product.id)
+
+        res.redirect('/products/' + product.id)
     },
 
     // Función que elimina del Array visitados ek producto seleccionado
@@ -107,7 +124,7 @@ let productController = {
         const filteredProducts = productModel.search(dataABuscar);
         // Filtrar todos los productos por los que contengan dataABuscar en el titulo y devolver una pagina con esos productos
         res.render('productos/listProduct', {
-            products : filteredProducts,
+            products: filteredProducts,
             query: dataABuscar
         });
     },
@@ -116,7 +133,7 @@ let productController = {
 
         const products = productModel.all();
 
-        res.render('productos/listProduct', {products});
+        res.render('productos/listProduct', { products });
 
 
     }
