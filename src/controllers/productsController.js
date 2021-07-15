@@ -61,7 +61,7 @@ let productController = {
         console.log(product.imagen);
         console.log(product);
         // Cuidado sólo mando el cuerpo del FORM, el Id me lo asigna el Modelo  
-        productModel.create(product);
+        //db.Product.create(product);
         res.redirect('/');
     },
 
