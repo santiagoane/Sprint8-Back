@@ -17,8 +17,8 @@ const productsRoutes = require('./routes/productRoutes');   // Rutas de producto
 //const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
-
-app.use(express.static('../public'));                  // Defino a la carpeta public como la que tiene todos los assets
+app.set('views', path.join(__dirname, '/views'));
+app.use(express.static(path.join(__dirname,'../public')));                  // Defino a la carpeta public como la que tiene todos los assets
 app.set('view engine', 'ejs');                      // Defino a ejs como motor de renderizacion
 app.use(express.urlencoded({extended: false}));
 const methodOverride = require('method-override'); // Requerimos este módulo para asegurar compatibilidad de métodos PUT y DELETE en todos los navegadores.
