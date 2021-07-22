@@ -11,8 +11,8 @@ const upload = require(path.resolve(__dirname,'../middlewares/multerProductsMidd
 
 
 
-// router.get('/', productController.show1);
-// router.get('/create', productController.create);
+router.get('/', productController.show1);
+ router.get('/create', productController.create);
 // router.get('/cart', productController.cart);
 // router.get('/search', productController.search);
 router.get('/:id', productController.show);

@@ -13,6 +13,8 @@ module.exports = {
     */
      await queryInterface.bulkInsert('Images', [
       {file:"Filex.jpg",product_id:1,id:1},
+      {file:"Filex.jpg",product_id:2,id:2},
+
     ])
   },
 

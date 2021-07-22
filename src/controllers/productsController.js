@@ -46,9 +46,18 @@ let productController = {
     },
 
     // Función que muestra el formulario de crear Productos
+    // create: (req, res) => {
+    //     console.log('Entre a create')
+    //     res.render('productos/createProduct');
+    // },
     create: (req, res) => {
-        console.log('Entre a create')
-        res.render('productos/createProduct');
+        db.Category.findAll()
+            .then((categories) => {
+                res.render("productos/createProduct", { categories });
+            })
+            .catch((error) => {
+                res.send(error)
+            })
     },
     // Función que simula el almacenamiento, en este caso en array
 
@@ -129,16 +138,42 @@ let productController = {
         });
     },
 
-    show1: (req, res) => {
+    // show1: (req, res) => {
 
-        const products = productModel.all();
+    //     const products = productModel.all();
 
-        res.render('productos/listProduct', { products });
+    //     res.render('productos/listProduct', { products });
 
 
-    }
+    // }
+
+
+    show1: async (req, res) => {
+
+        // Le delego al modelo la responsabilidad
+        // que la busque por ID del registro seleccionado
+        // es por ello que atrapo em parámetro id
+
+        try {
+            const product = await db.Product.findAll(req.params.id,
+                {
+                    include: [
+                        "brand", "category", "size", "color", "gender"
+                    ]
+                }
+
+            );
+            console.log(JSON.parse(JSON.stringify(product)))
+            console.log(product)
+            return res.render('productos/listProduct', { product });
+
+        }
+        catch (error) {
+            console.log(error);
+
+        }
+    },
 
 }
-
 
 module.exports = productController
