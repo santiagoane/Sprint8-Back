@@ -3,14 +3,14 @@
         <div class="product-img" style="background-image: url('../images/producto/<%= product.imagen %>')"></div>
      
         <div>
-            <h4 class="descripcion">
-                <%= product.nombre_producto %>
+             <h4 class="descripcion">
+                <%= product.name %>
             </h4>
             <div class="precios">
-                <p class="precio">$ <%= product.precio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
+                <p class="precio">$ <%= product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
                 </p>
-                <p class="precio-descontado">$ <%= Math.round(product.precio - product.descuento).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
-                </p>
+                <!-- <p class="precio-descontado">$ <%= Math.round(product.price - product.descuento).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); %>
+                </p> -->
             </div>
  
         </div>

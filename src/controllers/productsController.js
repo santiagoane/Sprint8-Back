@@ -6,8 +6,9 @@
 
 const path = require('path');
 const db = require('../database/models');
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
+const Op = db.Sequelize.Op;
+// const sequelize = db.sequelize;
+// const { Op } = require("sequelize");
 
 let productController = {
 
@@ -61,17 +62,38 @@ let productController = {
     },
     // Función que simula el almacenamiento, en este caso en array
 
-    store: (req, res) => {
-        console.log(req.files);
-        // Atrapa los contenidos del formulario... Ponele
-        const product = req.body;
-        // Verificar si viene un archivo, para nombrarlo.
-        product.imagen = req.file ? req.file.filename : '';
-        console.log(product.imagen);
-        console.log(product);
-        // Cuidado sólo mando el cuerpo del FORM, el Id me lo asigna el Modelo  
-        //db.Product.create(product);
-        res.redirect('/');
+    store: async (req, res) => {
+
+        db.Product.create({
+            name: req.body.name,
+            description: req.body.description,
+            categories_id: req.body.category,
+            price: req.body.price,
+            
+          })
+          .then((data)=>{
+            db.Image.create ({
+              name       :  req.file.filename,
+              products_id:  data.id } )
+              res.redirect('/products');
+          }
+          )
+          .catch((err)=>{
+            res.send(err);
+          })
+
+
+
+        // console.log(req.files);
+        // // Atrapa los contenidos del formulario... Ponele
+        // const product = req.body;
+        // // Verificar si viene un archivo, para nombrarlo.
+        // product.imagen = req.file ? req.file.filename : '';
+        // console.log(product.imagen);
+        // console.log(product);
+        // // Cuidado sólo mando el cuerpo del FORM, el Id me lo asigna el Modelo  
+        // //db.Product.create(product);
+        // res.redirect('/');
     },
 
     edit: (req, res) => { // Delego al modelo que busque el producto

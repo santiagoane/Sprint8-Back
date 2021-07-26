@@ -19,7 +19,7 @@
             </form>
         </section>
         <section>
-            <% products.forEach(product => { %>
+            <% product.forEach(product => { %>
                 <%- include('../partials/product', { product }) %>
             <% })%>
         </section>

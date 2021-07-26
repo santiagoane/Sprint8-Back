@@ -12,7 +12,12 @@ module.exports = {
      * }], {});
     */
      await queryInterface.bulkInsert('Categories', [
-      {name:"Kites"},
+      {name:"Surf",id:1},
+      {name:"Kitesurf",id:2},
+      {name:"Paddlesurf",id:3},
+      {name:"Wakeboard",id:4},
+      {name:"Snorkel",id:5},
+      {name:"Windsurf",id:6}
     ])
   },
 

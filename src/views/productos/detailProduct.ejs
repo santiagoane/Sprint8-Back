@@ -20,20 +20,20 @@
                         <img src="../images/producto/<%= product.imagen %>">
                     </div> -->
                     <div class="images-first">
-                        <img src="../images/producto/<%= product.imagen %>">
+                        <img src="../../public/images/producto/<%= product.imagen %>">
                     </div>
                 </article>
                 <article class="product-detalle">
-                    <h3 class="product-name"><%= product.nombre_producto %></h3>
-                    <h2 class="product-price">$<%= Math.round(product.precio - product.descuento).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %></h2>
+                    <h3 class="product-name"><%= product.name %></h3>
+                    <!-- <h2 class="product-price">$<%= Math.round(product.precio - product.descuento).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %></h2> -->
+                    <h2 class="product-price">$<%= Math.round(product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") %></h2>
                     <br>
                     <h4 class="product-form-title">DETALLE</h4>
                     <form action="#" method="POST" class="product-form">
                         <label>COLOR</label>
                         <select name="color">
-                            <option value="color01">01</option>
-                            <option value="color02">02</option>
-                            <option value="color03">03</option>
+                            <option value="color01"><%= product.color.name %></option>
+
                         </select>
                         <label>MEDIDA</label>
                         <select name="medida">
@@ -71,11 +71,11 @@
             </section>
             <section class="related-products">
                 <h4 class="product-related-title">PRODUCTOS RELACIONADOS</h4>
-                <div class="related-products-grid">
+             <div class="related-products-grid">
                 <%- include('../partials/product', { product }) %>
                 <%- include('../partials/product', { product }) %>
                 <%- include('../partials/product', { product }) %>
-            </div>
+            </div> 
             </section>
             <div class="product-icons">
                 <i class="fab fa-twitter"></i>

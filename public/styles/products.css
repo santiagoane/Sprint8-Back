@@ -55,7 +55,7 @@ article h4 {
 
 .precio {
     color: #395ca4;
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
 }
 
 .precio-descontado {
