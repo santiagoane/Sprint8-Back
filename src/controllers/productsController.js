@@ -35,8 +35,8 @@ let productController = {
                 }
 
             );
-            console.log(product.toJSON())
-            console.log(product)
+            console.log(JSON.parse(JSON.stringify(product)))
+            console.log(product.images);
             return res.render('productos/detailProduct', { product });
 
         }
@@ -59,6 +59,20 @@ let productController = {
             .catch((error) => {
                 res.send(error)
             })
+        db.Brand.findAll()
+            .then((brands) => {
+                res.render("productos/createProduct", { brands });
+            })
+            .catch((error) => {
+                res.send(error)
+            })
+        db.Color.findAll()
+            .then((colors) => {
+                res.render("productos/createProduct", { colors });
+            })
+            .catch((error) => {
+                res.send(error)
+            })
     },
     // Función que simula el almacenamiento, en este caso en array
 
@@ -68,19 +82,22 @@ let productController = {
             name: req.body.name,
             description: req.body.description,
             categories_id: req.body.category,
+            brands_id: req.body.brand,
+            colors_id: req.body.color,
             price: req.body.price,
-            
-          })
-          .then((data)=>{
-            db.Image.create ({
-              name       :  req.file.filename,
-              products_id:  data.id } )
-              res.redirect('/products');
-          }
-          )
-          .catch((err)=>{
-            res.send(err);
-          })
+
+        })
+            .then((data) => {
+                db.Image.create({
+                    name: req.file.filename,
+                    products_id: data.id
+                })
+                res.redirect('/products');
+            }
+            )
+            .catch((err) => {
+                res.send(err);
+            })
 
 
 
@@ -180,7 +197,7 @@ let productController = {
             const product = await db.Product.findAll(req.params.id,
                 {
                     include: [
-                        "brand", "category", "size", "color", "gender"
+                        "brand", "category", "Images", "size", "color", "gender"
                     ]
                 }
 
@@ -194,8 +211,7 @@ let productController = {
             console.log(error);
 
         }
-    },
-
+    }
 }
 
-module.exports = productController
+    module.exports = productController

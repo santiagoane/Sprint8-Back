@@ -39,11 +39,29 @@
                             <label for="category">Categoría:</label>
                             <select name="category" id="category" required " >
                                 <% for( let i = 0; i < categories.length; i++ ) { %>
-                                    <option value=" <%=categories[i].id%>"><%=categories[i].name%></option>
-                                <% } %>
+                                    <option value=" <%=categories[i].id%>"><%=categories[i].name%>
+                                    </option>
+                                    <% } %>
                             </select>
                         </div>
-
+                    <div>
+                        <label for="brand">Brand:</label>
+                        <select name="brand" id="brand" required " >
+                            <% for( let i = 0; i < brands.length; i++ ) { %>
+                                <option value=" <%=brands[i].id%>"><%=brands[i].name%>
+                                </option>
+                                <% } %>
+                        </select>
+                    </div>
+                        <div>
+                            <label for="color">Color:</label>
+                            <select name="color" id="color" required " >
+                                <% for( let i = 0; i < colors.length; i++ ) { %>
+                                    <option value=" <%=colors[i].id%>"><%=colors[i].name%>
+                                    </option>
+                                    <% } %>
+                            </select>
+                        </div>
                         <div>
                             <label for="imagen">Imagen</label>
                             <input type="file" name="imagen" id="imagen">

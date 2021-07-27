@@ -34,7 +34,7 @@ app.use(session({
 
 
 app.use('/', indexRoutes);              // Rutas de la home pasan a controlarlas indexRoutes
-// app.use('/', userRoutes);               // Rutas de login y register pasan a controlarlas userRoutes
+//app.use('/', userRoutes);               // Rutas de login y register pasan a controlarlas userRoutes
 app.use('/products', productsRoutes);   // Rutas de edit y create pasan a controlarlas userRoutes
 // app.use('/admin', adminRoutes);
 

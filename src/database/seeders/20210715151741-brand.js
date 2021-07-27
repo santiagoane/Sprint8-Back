@@ -13,6 +13,7 @@ module.exports = {
     */
      await queryInterface.bulkInsert('Brands', [
       {name:"Cabrinha",id:1},
+      {name:"Cabrinha2",id:2},
     ])
   },
 

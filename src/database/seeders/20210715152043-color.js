@@ -13,6 +13,9 @@ module.exports = {
     */
      await queryInterface.bulkInsert('Colors', [
       {name:"Azul",id:1},
+      {name:"Rojo",id:2},
+      {name:"Amarillo",id:3},
+      {name:"Verde",id:4},
     ])
   },
 
