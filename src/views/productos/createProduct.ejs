@@ -17,67 +17,61 @@
                 <form action="/products/create" method="POST" enctype="multipart/form-data">
                     <div class="divflex">
                         <div class="nameProduct">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" required>
+                            <label for="name">Nombre:</label>
+                            <input type="text" name="name" id="nombre" placeholder="Nombre" autofocus required>
                         </div>
-
                         <div>
-                            <label for="description">Descripcion</label>
-                            <input type="text" name="description" id="name" required>
-                        </div>
-
-                        <div>
-                            <!-- <label for="category">Categoria</label>
-                            <select name="category" id="category" required>
-                                <option value="1">Surf</option>
-                                <option value="2">Kitesurf</option>
-                                <option value="3">Paddlesurf</option>
-                                <option value="4">Wakeboard</option>
-                                <option value="5">Snorkel</option>
-                                <option value="6">Windsurf</option>
-                            </select> -->
                             <label for="category">Categoría:</label>
-                            <select name="category" id="category" required " >
-                                <% for( let i = 0; i < categories.length; i++ ) { %>
-                                    <option value=" <%=categories[i].id%>"><%=categories[i].name%>
-                                    </option>
-                                    <% } %>
+                            <select name="categories_id" id="categoria" required >
+                                <% categories.forEach(category => { %>
+                                    <option value="<%= category.id %>"> <%= category.name %> </option>
+                                <% }) %>
                             </select>
                         </div>
-                    <div>
-                        <label for="brand">Brand:</label>
-                        <select name="brand" id="brand" required " >
-                            <% for( let i = 0; i < brands.length; i++ ) { %>
-                                <option value=" <%=brands[i].id%>"><%=brands[i].name%>
-                                </option>
-                                <% } %>
-                        </select>
-                    </div>
+                        <div>
+                            <label for="brand">Marca:</label>
+                            <select name="brands_id" id="marca" required >
+                                <% brands.forEach(brand => { %>
+                                    <option value="<%= brand.id %>"> <%= brand.name %> </option>
+                                <% }) %>
+                            </select>   
+                        </div>
+                        <div>
+                            <label for="size">Tamaño:</label>
+                            <select name="sizes_id" id="tamaño" required >
+                                <% sizes.forEach(size => { %>
+                                    <option value="<%= size.id %>"> <%= size.name %> </option>
+                                <% }) %>
+                            </select> 
+                        </div>
                         <div>
                             <label for="color">Color:</label>
-                            <select name="color" id="color" required " >
-                                <% for( let i = 0; i < colors.length; i++ ) { %>
-                                    <option value=" <%=colors[i].id%>"><%=colors[i].name%>
-                                    </option>
-                                    <% } %>
-                            </select>
+                            <select name="colors_id" id="color" required >
+                                <% colors.forEach(color => { %>
+                                    <option value="<%= color.id %>"> <%= color.name %> </option>
+                                <% }) %>
+                            </select> 
+                        </div>
+                        <div>
+                            <label for="description">Descripcion:</label>
+                            <textarea name="description" id="descripcion" rows="5" placeholder="Descripcion" required></textarea>
                         </div>
                         <div>
                             <label for="imagen">Imagen</label>
                             <input type="file" name="imagen" id="imagen">
                         </div>
-
-
                         <div>
-                            <label for="price">Precio</label>
-                            <input type="text" name="price" required>
+                            <label for="price">Precio:</label>
+                            <input type="text" name="price" id="precio" placeholder="Precio" required>
                         </div>
-
+                        <div>
+                            <label for="stock">Cantidad:</label>
+                            <input type="text" name="stock" id="cantidad" placeholder="Cantidad" required>
+                        </div>
                         <!-- <div>
                             <label for="descuento">descuento</label>
                             <input type="text" name="descuento">
                         </div> -->
-
                         <div class="divboton">
                             <button type="submit">Crear producto</button>
                         </div>

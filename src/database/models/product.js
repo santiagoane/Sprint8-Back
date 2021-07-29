@@ -20,10 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'categories_id',
         as: "category"
       });
-      Product.belongsTo(models.Gender, {
-        foreignKey: 'genders_id',
-        as: "gender"
-      });
       Product.hasMany(models.Image, {
         foreignKey: 'product_id',
         as: "Images"
@@ -44,11 +40,9 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT,
     price: DataTypes.DECIMAL,
     stock: DataTypes.INTEGER,
-    
     categories_id: DataTypes.INTEGER,
     brands_id: DataTypes.INTEGER,
     colors_id: DataTypes.INTEGER,
-    genders_id: DataTypes.INTEGER,
     sizes_id: DataTypes.INTEGER
   }, {
     sequelize,

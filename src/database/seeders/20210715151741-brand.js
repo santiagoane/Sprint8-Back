@@ -14,6 +14,8 @@ module.exports = {
      await queryInterface.bulkInsert('Brands', [
       {name:"Cabrinha",id:1},
       {name:"Cabrinha2",id:2},
+      {name:"Cabrinha3",id:3},
+      {name:"Cabrinha4",id:4},
     ])
   },
 
