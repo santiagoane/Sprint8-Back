@@ -15,59 +15,78 @@
             <section class="sectionbody">
                 <h3 class="tituloEdit">Edicion del producto</h3>
 
-                <form action="/products/<%=  product.id %>?_method=PUT" method="POST">
+                <form action="/products/<%=  product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <div class="divflex">
                         <div class="nameProduct">
-                            <label for="nombre_producto">Nombre</label>
-                            <input id="nombre_producto" type="text" name="nombre_producto" value="<%= product.nombre_producto %>" required>
+                            <label for="name">Nombre:</label>
+                            <input type="text" name="name" id="nombre" value="<%= product.name %>" placeholder="<%= product.name %>" autofocus required>
                         </div>
-
                         <div>
-                            <label for="descripcion">Descripcion</label>
-                            <input id="descripcion" type="text" name="descripcion" value="<%= product.descripcion %>" required>
-                        </div>
-
-                        <div>
-                            <label for="categoria">Categoria</label>
-                            <select name="categoria" id="categoria" required>
-                                <option value="<%= product.categoria %>"><%= product.categoria %></option>
-                                <option value="Surf">Surf</option>
-                                <option value="Kitesurf">Kitesurf</option>
-                                <option value="Paddlesurf">Paddlesurf</option>
-                                <option value="Wakeboard">Wakeboard</option>
-                                <option value="Snorkel">Snorkel</option>
-                                <option value="Windsurf">Windsurf</option>
+                            <label for="category">Categoría:</label>
+                            <select name="categories_id" id="categoria" required >
+                                <% categories.forEach(category => { %>
+                                    <% if (category.id == product.category_id) { %>
+                                        <option value="<%= product.category_id %>" selected> <%= product.category.name %> </option>
+                                    <% }else{ %>
+                                        <option value="<%= category.id %>"> <%= category.name %> </option>
+                                   <% } %>
+                                <% }) %>
                             </select>
                         </div>
-
                         <div>
-                            <label for="subcategoria">Sub categoria</label>
-                            <select name="subcategoria" id="subcategoria" required>
-                                <option value="<%= product.subcategoria %>"><%= product.subcategoria %></option>
-                                <option value="Trajes">Trajes</option>
-                                <option value="Tablas">Tablas</option>
-                                <option value="Cera">Cera</option>
-                            </select>
+                            <label for="brand">Marca:</label>
+                            <select name="brands_id" id="marca" required >
+                                <% brands.forEach(brand => { %>
+                                    <% if (brand.id == product.brand_id) { %>
+                                        <option value="<%= product.brand_id %>" selected> <%= product.brand.name %> </option>
+                                    <% }else{ %>
+                                        <option value="<%= brand.id %>"> <%= brand.name %> </option>
+                                   <% } %>
+                                <% }) %>
+                            </select>   
                         </div>
-
+                        <div>
+                            <label for="size">Tamaño:</label>
+                            <select name="sizes_id" id="tamaño" required >
+                                <% sizes.forEach(size => { %>
+                                    <% if (size.id == product.size_id) { %>
+                                        <option value="<%= product.sizes_id %>" selected> <%= product.size.name %> </option>
+                                    <% }else{ %>
+                                        <option value="<%= sizes.id %>"> <%= size.name %> </option>
+                                   <% } %>
+                                <% }) %> 
+                            </select> 
+                        </div>
+                        <div>
+                            <label for="color">Color:</label>
+                            <select name="colors_id" id="color" required >
+                                <% colors.forEach(color => { %>
+                                    <% if (color.id == product.color_id) { %>
+                                        <option value="<%= product.color_id %>" selected> <%= product.color.name %> </option>
+                                    <% }else{ %>
+                                        <option value="<%= color.id %>"> <%= color.name %> </option>
+                                   <% } %>
+                                <% }) %> 
+                            </select> 
+                        </div>
+                        <div>
+                            <label for="description">Descripcion:</label>
+                            <textarea name="description" id="descripcion" rows="5" value="<%= product.description %>" placeholder="<%= product.description %>" required></textarea>
+                        </div>
                         <div class="field">
                             <label for="imagen">Imagen</label>
                             <div class="control">
-                             
                                 <input type="file" name="imagen" id="imagen">
-                                <input type="hidden" name="oldImagen" value="<%= product.imagen %>">
-                           
+                                <input type="hidden" name="oldImagen" id="hiddenImage" value="<%= product.imagen %>">
                             </div>
                         </div>
-
                         <div>
-                            <label for="precio">Precio</label>
-                            <input type="text" name="precio" value="<%= product.precio %>" required>
+                            <label for="price">Precio:</label>
+                            <input type="text" name="price" id="precio" value="<%= product.price %>" placeholder="<%= product.price %>" required>
                         </div>
-
                         <div>
-                            <label for="descuento">descuento</label>
-                            <input type="text" name="descuento" value="<%= product.descuento %>" required>
+                            <label for="stock">Cantidad:</label>
+                            <input type="text" name="stock" id="cantidad" value="<%= product.stock %>" placeholder="Cantidad" required>
                         </div>
 
                         <div class="divboton">
@@ -75,7 +94,7 @@
                         </div>
                     </div>
                 </form>
-                <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                <form action="/products/<%= product.id %>?_method=DELETE" method="POST" enctype="multipart/form-data">
                     <div class="divflex">
                         <div>
                             <button type="submit">Eliminar Producto</button>

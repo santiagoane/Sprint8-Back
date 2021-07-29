@@ -16,12 +16,11 @@ router.get('/', productController.show1);
 // router.get('/cart', productController.cart);
 // router.get('/search', productController.search);
 router.get('/:id', productController.show);
-// router.get('/:id/edit', productController.edit);
+router.get('/:id/edit', productController.edit);
 
-// router.post('/create', upload.single('imagen'), productController.store);
-// router.put('/:id', upload.single('imagen'), productController.update);
-
-// router.delete('/:id', productController.destroy);
+router.post('/create', upload.single('imagen'), productController.store); 
+router.put('/:id', upload.single('imagen'), productController.update);
+router.delete('/:id', productController.destroy);
 
 module.exports = router;
 

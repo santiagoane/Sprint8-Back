@@ -12,7 +12,9 @@ module.exports = {
      * }], {});
     */
      await queryInterface.bulkInsert('Sizes', [
-      {name:"Medium",id:1},
+      {name:"Small",id:1},
+      {name:"Medium",id:2},
+      {name:"Large",id:3},
     ])
   },
 

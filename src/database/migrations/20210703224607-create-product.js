@@ -24,10 +24,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      // image: {
-      //   allowNull: false,
-      //   type: Sequelize.STRING
-      // },
       
       
       categories_id: {
@@ -50,14 +46,8 @@ module.exports = {
         references: {
           model: 'colors',
           key: 'id'}
-      },
-      genders_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'genders',
-          key: 'id'}
-      },
+      }
+      ,
       sizes_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
