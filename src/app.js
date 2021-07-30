@@ -8,7 +8,7 @@ const session = require('express-session');
 
 // Llamo las distintas rutas que vamos a usar
 const indexRoutes = require('./routes/indexRoutes');        // Ruta para la home
-//const userRoutes = require('./routes/userRoutes');          // Ruta para usuarios
+const userRoutes = require('./routes/userRoutes');          // Ruta para usuarios
 const productsRoutes = require('./routes/productRoutes');   // Rutas de producto
 //const adminRoutes = require('./routes/adminRoutes');     // Rutas de backoffice
 
@@ -34,7 +34,7 @@ app.use(session({
 
 
 app.use('/', indexRoutes);              // Rutas de la home pasan a controlarlas indexRoutes
-//app.use('/', userRoutes);               // Rutas de login y register pasan a controlarlas userRoutes
+app.use('/', userRoutes);               // Rutas de login y register pasan a controlarlas userRoutes
 app.use('/products', productsRoutes);   // Rutas de edit y create pasan a controlarlas userRoutes
 // app.use('/admin', adminRoutes);
 

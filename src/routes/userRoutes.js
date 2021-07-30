@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
-const userController = require('../controllers/userController');
+const userController = require(path.resolve(__dirname,'../controllers/userController')) 
 
 //middlewares
 const uploadFile = require('../middlewares/multerUserMiddleware')

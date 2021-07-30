@@ -1,7 +1,9 @@
+const { validationResult } = require('express-validator');
 const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { Op } = require("sequelize");
+const { log } = require('console');
 
 
 
@@ -118,26 +120,28 @@ let productController = {
     update: async (req, res) => {
         try {
             const product = await db.Product.findOne({
-                where: {id : req.params.id}, 
+                where: { id: req.params.id },
                 include: ["category", "brand", "size", "color", "Images"]
             });
-            
+
             let categories = await db.Category.findAll();
             let brands = await db.Brand.findAll();
             let sizes = await db.Size.findAll();
             let colors = await db.Color.findAll();
 
-            const productBody = req.body;
 
+
+            const productBody = req.body;
             const image = {};
+
 
             productBody.image = req.file ? req.file.filename : productBody.oldImagen;
             if (productBody.image === undefined) {
                 productBody.image = productBody.oldImagen
             };
             delete productBody.oldImagen;
-            
-            let updatedProduct = await db.Product.update({ 
+
+            let updatedProduct = await db.Product.update({
                 name: productBody.name,
                 categoryId: productBody.category_id,
                 brandId: productBody.brand_id,
@@ -147,56 +151,28 @@ let productController = {
                 price: productBody.price,
                 stock: productBody.stock,
             },
-                {where: { id: req.params.id }});
+                { where: { id: req.params.id } });
 
-            let productImage = await db.Image.update({name: productBody.image},{
-                    where: {productId: req.params.id}});
+            let productImage = await db.Image.update({ 
+                file: productBody.image }, {
+                where: { product_id: req.params.id }
+            });
 
             res.redirect('/products/' + req.params.id);
         } catch (error) {
             console.log(error);
             return res.status(500);
         }
-    },
-    // update: (req, res) => {
-    //     let product = req.body;
-    //     console.log('product');
-    //     product.id = req.params.id;
-
-    //     product.imagen = req.file ? req.file.filename : req.body.oldImagen;
-
-    //     if (req.body.imagen === undefined) {
-    //         product.imagen = product.oldImagen
-    //     }
-
-    //     console.log('.......MOSTRA LA IMAGEN.......')
-    //     console.log(product.imagen)
-    //     console.log(product)
-
-
-    //     // Elimino de la estructura auxiliar, porque no existe en Json 
-    //     delete product.oldImagen;
-
-
-    //     // Delego la responsabilidad al modelo que actualice
-    //     productModel.update(product);
-
-
-
-    //     res.redirect('/products/' + product.id)
-    // },
-
-    // Función que elimina del Array visitados ek producto seleccionado
-    destroy: (req, res) => {
-        console.log('entre destroy')
-        productModel.delete(req.params.id);
-
-        // Ahora se mostrará todo porque los productos los varga de un archivo
-        res.redirect('/')
-    },
+    },// Función que elimina del Array visitados ek producto seleccionado
     destroy: async (req, res) => {
-        let deletedProduct = await db.Product.destroy({where: {id : req.params.id}});
-        res.redirect('/')
+        let product_id = req.params.id;
+        db.Product.findByPk(product_id,
+            {
+                include: ['Images']
+            });
+        await db.Image.destroy({ where: { product_id: product_id }, force: true });
+        await db.Product.destroy({ where: { id: product_id }, force: true });
+        return res.redirect('/products')
     },
 
 
