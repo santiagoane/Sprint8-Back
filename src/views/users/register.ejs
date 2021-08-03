@@ -34,6 +34,16 @@
                             </div>
                         <% } %>
                     </div>
+                    <div class="nombre">
+                        <label for="username">Tu usuario</label>
+                        <input type="text" name="username" required
+                        value="<%= locals.oldData ? oldData.username : null %>">
+                        <% if (locals.errors && errors.username) { %>
+                            <div class="text-danger">
+                                <%= errors.username.msg %> 
+                            </div>
+                        <% } %>
+                    </div>
                     <div class="mail">
                         <label for="email">Correo electrónico</label>
                         <input type="email" name="email" required 

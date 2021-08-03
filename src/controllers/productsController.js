@@ -77,7 +77,7 @@ let productController = {
 
             let productoCreado = await db.Product.create(product);
 
-            let productImage = await Images.create({
+            let productImage = await db.Images.create({
                 file: product.image,
                 product_id: productoCreado.id
             });

@@ -1,11 +1,12 @@
 //Definamos el Bcrypt
 const bcryptjs = require('bcryptjs');
 // ESTO SERIA EL GESTOR DEL MODELO
-// const userModel = require('../model/userModel');
-
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 const path = require('path');
 
-const db = require('../database/models');
+
 
 //Traigo el validator desde el middleware
 const {
@@ -96,28 +97,28 @@ let userController = {
 		);
 
 	},
-	//ya usamos el show para esta funcion
-	/*login: (req, res) => {
-		return res.render('userLoginForm');
-	},*/
+	
 
-	loginProcess: (req, res) => {
-		let userToLogin = db.user.findOne({
+	loginProcess: async (req, res) => {
+		let userToLogin = await db.User.findOne({
             where:{
                 email: req.body.email
             }
 		});
-
+		
 		if (userToLogin) {
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+
 			if (isOkThePassword) {
 				delete userToLogin.password;
 				req.session.userLogged = userToLogin;
 
 				if (req.body.remember_user) {
+
+		
+
 					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
-
 				return res.redirect('/');
 			}
 			return res.render('users/login', {

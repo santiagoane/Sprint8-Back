@@ -14,7 +14,7 @@ const productsRoutes = require('./routes/productRoutes');   // Rutas de producto
 
 
 // Llamo a un Middleware
-//const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
 app.set('views', path.join(__dirname, '/views'));
@@ -30,7 +30,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false,
 }));
-//app.use(userLoggedMiddleware); // Activo el userLoggedMiddleware
+app.use(userLoggedMiddleware); // Activo el userLoggedMiddleware
 
 
 app.use('/', indexRoutes);              // Rutas de la home pasan a controlarlas indexRoutes
