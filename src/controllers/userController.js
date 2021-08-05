@@ -71,21 +71,24 @@ let userController = {
 			avatar: req.file.filename
 		}
 
-		try{
+		try {
 
 			let response = await db.User.create({
-				name  : userToCreate.name,
-                username   : userToCreate.username,
-                email       : userToCreate.email,
-                password    : userToCreate.password,
-                avatar      : req.file.filename,
-                roles_id     : 1 
+				name: userToCreate.name,
+				username: userToCreate.username,
+				email: userToCreate.email,
+				password: userToCreate.password,
+				avatar: req.file.filename,
+				roles_id: 1 
 
+               
 			})
 
-		} catch(err){
-            res.send(err)
-        };
+
+
+		} catch (err) {
+			res.send(err)
+		};
 
 		return res.redirect('/login');
 	},
@@ -97,15 +100,15 @@ let userController = {
 		);
 
 	},
-	
+
 
 	loginProcess: async (req, res) => {
 		let userToLogin = await db.User.findOne({
-            where:{
-                email: req.body.email
-            }
+			where: {
+				email: req.body.email
+			}
 		});
-		
+
 		if (userToLogin) {
 			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
 
@@ -115,7 +118,7 @@ let userController = {
 
 				if (req.body.remember_user) {
 
-		
+
 
 					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
 				}
@@ -139,24 +142,26 @@ let userController = {
 		});
 	},
 
-	profile:async (req,res) => {
-        let userLogged = req.session.userLogged
-        await db.Address.findByPk(userLogged.addresses_id)
-            .then((data)=>{
-                userLogged= {
-                    name  :userLogged.name,
-                    username   :userLogged.username,
-                    email       :userLogged.email,
-                    avatar      :userLogged.avatar,
- 
-                }
-            })
-        console.log(userLogged)
-        return res.render('users/profile', {
-            user: userLogged
-        });
+	profile: async (req, res) => {
+		let userLogged = req.session.userLogged
 
-    },
+
+		await db.User.findByPk(userLogged.id)
+			.then((data) => {
+				userLogged = {
+					name: userLogged.name,
+					username: userLogged.username,
+					email: userLogged.email,
+					avatar: userLogged.avatar,
+
+				}
+			})
+		console.log(userLogged)
+		return res.render('users/profile', {
+			user: userLogged
+		});
+
+	},
 	logout: (req, res) => {
 		res.clearCookie('userEmail');
 		req.session.destroy();
