@@ -1,3 +1,16 @@
+# Retro del Sprint 6
+
+### 1. Comenzar a hacer
+
+### 2. Hacer más
+console Logs
+Usar trello
+### 3. Continuar haciendo.
+
+### 4. Hacer menos
+
+### 5. Dejar de hacer
+
 # Retro del Sprint 5
 
 ### 1. Comenzar a hacer
