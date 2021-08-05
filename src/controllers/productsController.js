@@ -33,7 +33,7 @@ let productController = {
 
             );
             console.log(JSON.parse(JSON.stringify(product)))
-            console.log(product.images);
+            //console.log(product.images);
             return res.render('productos/detailProduct', { product });
 
         }
@@ -180,25 +180,34 @@ let productController = {
         res.render('productos/carrito');
     },
 
-    search: (req, res) => {
-        let dataABuscar = req.query.search;
-        const filteredProducts = productModel.search(dataABuscar);
-        // Filtrar todos los productos por los que contengan dataABuscar en el titulo y devolver una pagina con esos productos
-        res.render('productos/listProduct', {
-            products: filteredProducts,
-            query: dataABuscar
-        });
+    // search: (req, res) => {
+    //     let dataABuscar = req.query.search;
+    //     const filteredProducts = productModel.search(dataABuscar);
+    //     // Filtrar todos los productos por los que contengan dataABuscar en el titulo y devolver una pagina con esos productos
+    //     res.render('productos/listProduct', {
+    //         products: filteredProducts,
+    //         query: dataABuscar
+    //     });
+    // },
+    search: async (req, res) => {
+        try {
+            // almaceno query de busqueda
+            let { search } = req.query;
+            // paso el string de busqueda a lower case
+            search = search.toLowerCase();
+            // busco productos que incluyan en su nombre el string de busqueda
+            let products = await db.Product.findAll({
+                 where: {
+                    name:  {[Op.like]: `%${search}%`}
+                },
+                include: ["brand", "color", "size", "category", "Images"]
+            })
+                res.render('productos/catalogProduct', { products })
+        } catch (error) {
+            console.log(error);
+            return res.status(500);
+        }
     },
-
-    // show1: (req, res) => {
-
-    //     const products = productModel.all();
-
-    //     res.render('productos/listProduct', { products });
-
-
-    // }
-
 
     show1: async (req, res) => {
 
