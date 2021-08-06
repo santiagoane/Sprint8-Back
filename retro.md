@@ -1,7 +1,7 @@
 # Retro del Sprint 6
 
 ### 1. Comenzar a hacer
-
+resolucion de tareas dificiles en grupo
 ### 2. Hacer más
 console Logs
 Usar trello
