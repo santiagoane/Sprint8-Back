@@ -5,6 +5,7 @@ const port = process.env.PORT;
 const path = require('path');
 const cookies = require('cookie-parser');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 // Llamo las distintas rutas que vamos a usar
 const indexRoutes = require('./routes/indexRoutes');        // Ruta para la home
@@ -21,7 +22,6 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(path.join(__dirname,'../public')));                  // Defino a la carpeta public como la que tiene todos los assets
 app.set('view engine', 'ejs');                      // Defino a ejs como motor de renderizacion
 app.use(express.urlencoded({extended: false}));
-const methodOverride = require('method-override'); // Requerimos este módulo para asegurar compatibilidad de métodos PUT y DELETE en todos los navegadores.
 app.use(methodOverride('_method'))
 app.use(express.json());
 app.use(cookies());
