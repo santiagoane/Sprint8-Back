@@ -13,6 +13,15 @@ module.exports = [
 	body('password')
 	.notEmpty().withMessage('Tienes que escribir una contraseña').bail()
 	.isLength({ min: 8, max: 60 }).withMessage("debe tener al menos 8 caracteres"),
+	body('passwordConfirm')
+        .notEmpty().withMessage('Debes confirmar tu contraseña').bail()
+        .isLength({ min: 8 })
+        .custom((value, { req }) => {
+            if(value != req.body.password){
+                throw new Error('Las contraseñas no coinciden');
+            }
+            return true;
+        }),
 	body('avatar').custom((value, { req }) => {
 		let file = req.file;
 		let acceptedExtensions = ['.jpg', '.png', '.gif'];
