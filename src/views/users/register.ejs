@@ -22,11 +22,11 @@
         <section class="sectionbody">
             <h3 class="crearcuenta">Crear cuenta</h3>
 
-            <form action="/register" method="POST" form="form-formulario" id="form-formulario" enctype="multipart/form-data">
+            <form action="/register" method="POST" id="form-formulario" enctype="multipart/form-data">
                 <div class="divflex">
                     <div class="nombre">
                         <label for="name">Nombre completo:</label>
-                        <input type="text" name="name" id="nombre_completo" required autofocus placeholder="Ingrese tu nombre completo"
+                        <input type="text" name="name" id="nombre_completo" autofocus placeholder="Ingrese tu nombre completo"
                         class= "<%= locals.errors && errors.name ? 'is-invalid' : null %>"
                         value="<%= locals.oldData ? oldData.name : null %>">
                         <span class="Feedback"></span>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="nombre">
                         <label for="username">Nombre de usuario:</label>
-                        <input type="text" name="username" id="nombre_usuario" required placeholder="Ingrese un usuario"
+                        <input type="text" name="username" id="nombre_usuario" placeholder="Ingrese un usuario"
                         class= "<%= locals.errors && errors.username ? 'is-invalid' : null %>"
                         value="<%= locals.oldData ? oldData.username : null %>">
                         <span class="Feedback"></span>

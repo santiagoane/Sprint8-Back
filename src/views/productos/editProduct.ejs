@@ -15,12 +15,13 @@
             <section class="sectionbody">
                 <h3 class="tituloEdit">Edicion del producto</h3>
 
-                <form action="/products/<%=  product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <form action="/products/<%=  product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" id="form.formulario">
                     <div class="divflex">
                         <div class="nameProduct">
                             <label for="name">Nombre:</label>
                             <input type="text" name="name" id="nombre" value="<%= product.name %>" placeholder="<%= product.name %>" autofocus
                             value="<%= locals.oldData ? oldData.name : null %>" >
+                            <span class="Feedback"></span>
                                 <% if (locals.errors && errors.name) { %>
                                     <p class="inputError"><%= errors.name.msg  %> </p>  
                                 <% } %>
@@ -77,6 +78,7 @@
                             <label for="description">Descripcion:</label>
                             <textarea name="description" id="descripcion" rows="5" value="<%= product.description %>" placeholder="<%= product.description %>" 
                                 value="<%= locals.oldData ? oldData.description : null %>" ></textarea>
+                                <span class="Feedback"></span>
                                 <% if (locals.errors && errors.description) { %>
                                     <p class="inputError"><%= errors.description.msg  %> </p>  
                                 <% } %>
@@ -88,12 +90,14 @@
                                 <% if (locals.errors && errors.imagen) { %>
                                     <p class="inputError"><%= errors.imagen.msg  %> </p>
                                 <% } %>
+                                <span class="Feedback"></span>
                             </div>
                         </div>
                         <div>
                             <label for="price">Precio:</label>
                             <input type="text" name="price" id="precio" value="<%= product.price %>" placeholder="<%= product.price %>"
                             value="<%= locals.oldData ? oldData.price : null %>" >
+                            <span class="Feedback"></span>
                                 <% if (locals.errors && errors.price) { %>
                                     <p class="inputError"><%= errors.price.msg  %> </p>  
                                 <% } %>
@@ -102,6 +106,7 @@
                             <label for="stock">Cantidad:</label>
                             <input type="text" name="stock" id="cantidad" value="<%= product.stock %>" placeholder="Cantidad"
                             value="<%= locals.oldData ? oldData.stock : null %>" >
+                            <span class="Feedback"></span>
                                 <% if (locals.errors && errors.stock) { %>
                                     <p class="inputError"><%= errors.stock.msg  %> </p>  
                                 <% } %>
@@ -122,6 +127,7 @@
             </section>
         </main>
         <%- include('../partials/footer') %>
+        <script src="/js/frontCreateEditValidation.js"></script>
 </body>
 
 </html>

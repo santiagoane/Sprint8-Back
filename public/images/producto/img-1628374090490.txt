@@ -1,0 +1,17 @@
+*OLL:
+ 
+- Patrón Pez (Cabeza arriba): R 2U R' U' R U' R'
+- Patrón Pez (Cabeza abajo): R U R' U R 2U R'
+- Patrón Cruz: R U R' U R 2U R'
+- Patrón Pajarita: L' U' L U' B U' L' U' L U B'
+- Patrón Lego (Amarillo a los lados): L F R' F' L' F R F'
+- Patrón Lego (Amarillo mirándonos): R 2U R' B' U R U R' U' B 
+
+*PLL:
+
+- Conseguir una pareja: L' B L' 2F L B' L' 2F 2L
+- Conseguir todas las parejas: L' B L' 2F L B' L' 2F 2L
+- Permutación horaria: R’ U R’ U’ R’ U’ R’ U R U 2R
+- Permutación antihoraria: 2R U' R' U' R U R U R U' R
+- Permutación de parejas: 2M U' 2M U' M' 2U 2M 2U M' 2U
+- Permutación en cruz: 2M U 2M 2U 2M U 2M

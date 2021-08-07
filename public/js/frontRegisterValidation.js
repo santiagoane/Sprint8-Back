@@ -1,6 +1,6 @@
 let errors = {};
 
-let form = document.querySelector('form-formulario');
+let form = document.querySelector('#form-formulario');
 
 const frontName = document.getElementById('nombre_completo');
 const frontUsername = document.getElementById('nombre_usuario');
@@ -41,7 +41,6 @@ let validateFrontName = function () {
     }
     else {
         frontName.classList.remove('error-input');
-        //feedbackElement.remove();
         delete errors.frontName;
     }
 
@@ -127,7 +126,7 @@ let validateFrontPassConfirm = function () {
     let feedback = '';
     let feedbackElement = frontPassConfirm.nextElementSibling;
 
-    let pass = password.value;
+    let pass = frontPass.value;
     let conf = frontPassConfirm.value;
 
     if (pass != conf) {
