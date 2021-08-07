@@ -189,7 +189,31 @@ ul li {
     justify-content: center;
     margin-top: 3%;
 }
+/* Validaciones */
 
+.text-danger {
+    color: yellow;
+    font-size: 20px;
+    text-align: right;
+    background-color: blue;
+    border-radius: 5px;
+}
+.is-invalid {
+    border: 1px solid red;
+}
+
+/* Validaciones Back-End */
+
+span {
+    color: red;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.error-input {
+    text-align: left;
+    color: red;
+}
 
 /* Media queries */
 

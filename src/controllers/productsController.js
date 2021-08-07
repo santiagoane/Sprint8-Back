@@ -71,7 +71,20 @@ let productController = {
             let sizes = await db.Size.findAll();
             let colors = await db.Color.findAll();
 
+            const resultValidation = validationResult(req);
+
             const product = req.body;
+
+            if (resultValidation.errors.length > 0) {
+                return res.render('productos/createProduct', {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    brands,
+                    colors,
+                    sizes,
+                    categories
+                });
+            }
 
             product.image = req.file ? req.file.filename : '';
 
@@ -129,11 +142,29 @@ let productController = {
             let sizes = await db.Size.findAll();
             let colors = await db.Color.findAll();
 
-
+            const resultValidation = validationResult(req);
 
             const productBody = req.body;
             const image = {};
 
+            if (resultValidation.errors.length > 0) {
+                console.log("entraste al if Errors")
+                image.name = req.file ? req.file.filename : productBody.oldImagen;
+                if (resultValidation.errors.image) {
+                    console.log("entraste al if imageErrors")
+                    image.name = productBody.oldImagen;
+                }
+                return res.render('productos/editProduct', {
+                    errors: resultValidation.mapped(),
+                    oldData: req.body,
+                    product,
+                    brands,
+                    colors,
+                    sizes,
+                    categories,
+                    image
+                });
+            }
 
             productBody.image = req.file ? req.file.filename : productBody.oldImagen;
             if (productBody.image === undefined) {

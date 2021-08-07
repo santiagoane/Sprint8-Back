@@ -18,11 +18,15 @@
                     <div class="divflex">
                         <div class="nameProduct">
                             <label for="name">Nombre:</label>
-                            <input type="text" name="name" id="nombre" placeholder="Nombre" autofocus required>
+                            <input type="text" name="name" id="nombre" placeholder="Nombre" autofocus
+                            value="<%= locals.oldData ? oldData.name : null %>" >
+                                <% if (locals.errors && errors.name) { %>
+                                    <p class="inputError"><%= errors.name.msg  %> </p>  
+                                <% } %>
                         </div>
                         <div>
                             <label for="category">Categoría:</label>
-                            <select name="categories_id" id="categoria" required >
+                            <select name="categories_id" id="categoria">
                                 <% categories.forEach(category => { %>
                                     <option value="<%= category.id %>"> <%= category.name %> </option>
                                 <% }) %>
@@ -30,7 +34,7 @@
                         </div>
                         <div>
                             <label for="brand">Marca:</label>
-                            <select name="brands_id" id="marca" required >
+                            <select name="brands_id" id="marca">
                                 <% brands.forEach(brand => { %>
                                     <option value="<%= brand.id %>"> <%= brand.name %> </option>
                                 <% }) %>
@@ -38,7 +42,7 @@
                         </div>
                         <div>
                             <label for="size">Tamaño:</label>
-                            <select name="sizes_id" id="tamaño" required >
+                            <select name="sizes_id" id="tamaño">
                                 <% sizes.forEach(size => { %>
                                     <option value="<%= size.id %>"> <%= size.name %> </option>
                                 <% }) %>
@@ -46,7 +50,7 @@
                         </div>
                         <div>
                             <label for="color">Color:</label>
-                            <select name="colors_id" id="color" required >
+                            <select name="colors_id" id="color">
                                 <% colors.forEach(color => { %>
                                     <option value="<%= color.id %>"> <%= color.name %> </option>
                                 <% }) %>
@@ -54,24 +58,35 @@
                         </div>
                         <div>
                             <label for="description">Descripcion:</label>
-                            <textarea name="description" id="descripcion" rows="5" placeholder="Descripcion" required></textarea>
+                            <textarea name="description" id="descripcion" rows="5" placeholder="Descripcion" 
+                            value="<%= locals.oldData ? oldData.name : null %>" ></textarea>
+                            <% if (locals.errors && errors.description) { %>
+                                <p class="inputError"><%= errors.description.msg  %> </p> 
+                            <% } %>
                         </div>
                         <div>
                             <label for="imagen">Imagen</label>
                             <input type="file" name="imagen" id="imagen">
+                                <% if (locals.errors && errors.imagen) { %>
+                                    <p class="inputError"><%= errors.imagen.msg  %> </p>  
+                                <% } %>
                         </div>
                         <div>
                             <label for="price">Precio:</label>
-                            <input type="text" name="price" id="precio" placeholder="Precio" required>
+                            <input type="text" name="price" id="precio" placeholder="Precio"
+                            value="<%= locals.oldData ? oldData.price : null %>" >
+                                <% if (locals.errors && errors.price) { %>
+                                    <p class="inputError"><%= errors.price.msg  %> </p>  
+                                <% } %>
                         </div>
                         <div>
-                            <label for="stock">Cantidad:</label>
-                            <input type="text" name="stock" id="cantidad" placeholder="Cantidad" required>
+                            <label for="stock">Cantidad de Stock:</label>
+                            <input type="text" name="stock" id="cantidad" placeholder="Stock"
+                            value="<%= locals.oldData ? oldData.stock : null %>" >
+                                <% if (locals.errors && errors.stock) { %>
+                                    <p class="inputError"><%= errors.stock.msg  %> </p>  
+                                <% } %>
                         </div>
-                        <!-- <div>
-                            <label for="descuento">descuento</label>
-                            <input type="text" name="descuento">
-                        </div> -->
                         <div class="divboton">
                             <button type="submit">Crear producto</button>
                         </div>

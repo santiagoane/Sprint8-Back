@@ -29,13 +29,6 @@ let userController = {
 
 	},
 
-
-
-
-	register: (req, res) => {
-		return res.render('userRegisterForm');
-	},
-
 	processRegister: async (req, res) => {
 
 		const resultValidation = validationResult(req);
@@ -136,7 +129,7 @@ let userController = {
 		return res.render('users/login', {
 			errors: {
 				email: {
-					msg: 'No se encuentra este email en nuestra base de datos'
+					msg: 'No se encuentra este email registrado'
 				}
 			}
 		});

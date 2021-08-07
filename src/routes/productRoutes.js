@@ -8,7 +8,7 @@ const productController = require('../controllers/productsController');
 
 const upload = require(path.resolve(__dirname,'../middlewares/multerProductsMiddleware'))
 
-
+const validationProduct = require('../middlewares/validateProductMiddleware')
 
 
 router.get('/', productController.show1);
@@ -18,8 +18,8 @@ router.get('/search', productController.search);
 router.get('/:id', productController.show);
 router.get('/:id/edit', productController.edit);
 
-router.post('/create', upload.single('imagen'), productController.store); 
-router.put('/:id', upload.single('imagen'), productController.update);
+router.post('/create', upload.single('imagen'), validationProduct, productController.store); 
+router.put('/:id', upload.single('imagen'), validationProduct, productController.update);
 router.delete('/:id', productController.destroy);
 
 module.exports = router;
