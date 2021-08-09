@@ -10,7 +10,7 @@ module.exports = {
   list: async (req, res) => {
     try {
       let productInDb = await db.Product.findAll({
-        include: ["categories","images"],
+        include: ["category","Images"],
       });
       let countProduct = await db.Product.count();
       let countByCategory= await db.Category.findAndCountAll({
@@ -27,7 +27,7 @@ module.exports = {
             id:i.id,
             name:i.name,
             description:i.description,
-            images: i.images,
+            images: i.Images,
             detail: `http://${req.headers.host}/api/products/${i.id}`
           })
         });
@@ -67,23 +67,19 @@ module.exports = {
   productDetail: (req, res) => {
     
     db.Product.findByPk(req.params.id, {
-      include: ["categories","images"],
+      include: ["category","Images"],
     })
       .then((productInDb) => {
           let product = {
             id:           productInDb.id,
             name:         productInDb.name,
             price:        productInDb.price,
-            stock:        productInDb.stock,
-            stock_min:    productInDb.stock_min,
-            stock_max:    productInDb.stock_max,            
+            stock:        productInDb.stock,           
             categories_id:productInDb.categories_id,            
             description:  productInDb.description,            
-            week:         productInDb.week,            
-            facts:        productInDb.facts,
-            categories:   productInDb.categories,
-            images:       productInDb.images,
-            imgUrl:       `http://${req.headers.host}/img/${productInDb.images[0].name}`
+            categories:   productInDb.category,
+            images:       productInDb.Images,
+            imgUrl:       `http://${req.headers.host}/img/${productInDb.Images[0].file}`
           }
           return res.json({ 
             meta:{
@@ -108,7 +104,7 @@ module.exports = {
       where: {
         name: { [Op.like]: `%${search}%` },
       },
-      include: ["categories","images"],
+      include: ["category","Images"],
     })
     .then((productsInDb) => {
         if (products.length > 0) {

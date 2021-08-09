@@ -12,6 +12,8 @@ const indexRoutes = require('./routes/indexRoutes');        // Ruta para la home
 const userRoutes = require('./routes/userRoutes');          // Ruta para usuarios
 const productsRoutes = require('./routes/productRoutes');   // Rutas de producto
 //const adminRoutes = require('./routes/adminRoutes');     // Rutas de backoffice
+const productApiRoutes  = require('./routes/api/productApiRoutes');
+const userApiRoutes     = require('./routes/api/userApiRoutes');
 
 
 // Llamo a un Middleware
@@ -37,6 +39,11 @@ app.use('/', indexRoutes);              // Rutas de la home pasan a controlarlas
 app.use('/', userRoutes);               // Rutas de login y register pasan a controlarlas userRoutes
 app.use('/products', productsRoutes);   // Rutas de edit y create pasan a controlarlas userRoutes
 //app.use('/admin', adminRoutes);
+
+//API Routes
+
+app.use('/api/users', userApiRoutes) ; 
+app.use('/api/products', productApiRoutes) ;
 
 
 // Renderizo la pagina 404 si no identifica la ruta

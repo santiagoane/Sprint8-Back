@@ -9,7 +9,7 @@ module.exports = {
   list: async (req, res) => {
     try {
       let userInDb = await db.User.findAll({
-        include: ["addresses","rolls"],
+        include: ["role"],
       });
 
       let users = [];
@@ -17,8 +17,8 @@ module.exports = {
       userInDb.forEach(i => {
         users.push({
             id: i.id,
-            name: i.first_name,
-            last_name: i.last_name,
+            name: i.name,
+            username: i.username,
             email: i.email,
             url: `http://${req.headers.host}/api/users/${i.id}`
 
@@ -54,7 +54,7 @@ module.exports = {
 
   info: async (req, res) => {
     db.User.findByPk(req.params.id, {
-      include: ["addresses"],
+      include: ["role"],
     })
 
     .then((user) => {
@@ -68,8 +68,8 @@ module.exports = {
         data: {
           user: {
             id: user.id,
-            name: user.first_name,
-            lastName: user.last_name,
+            name: user.name,
+            username: user.username,
             email: user.email
           },
         user_avatar: `http://${req.headers.host}/api/users/${user.avatar}`
