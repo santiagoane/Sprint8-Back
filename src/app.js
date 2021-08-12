@@ -14,10 +14,13 @@ const productsRoutes = require('./routes/productRoutes');   // Rutas de producto
 //const adminRoutes = require('./routes/adminRoutes');     // Rutas de backoffice
 const productApiRoutes  = require('./routes/api/productApiRoutes');
 const userApiRoutes     = require('./routes/api/userApiRoutes');
+const categoryApiRoutes     = require('./routes/api/categoryApiRoutes');
 
 
 // Llamo a un Middleware
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const cors = require('cors');
+app.use(cors());
 
 
 app.set('views', path.join(__dirname, '/views'));
@@ -44,6 +47,7 @@ app.use('/products', productsRoutes);   // Rutas de edit y create pasan a contro
 
 app.use('/api/users', userApiRoutes) ; 
 app.use('/api/products', productApiRoutes) ;
+app.use('/api/categories', categoryApiRoutes) ;
 
 
 // Renderizo la pagina 404 si no identifica la ruta
